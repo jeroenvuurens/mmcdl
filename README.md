@@ -12,7 +12,10 @@ Literature
 tutorial
 
 * https://www.youtube.com/watch?v=S75EdAcXHKk
+* https://www.kaggle.com/c/word2vec-nlp-tutorial/details/part-2-word-vectors
 
 implementations
 
 * linearregression.py : Theano example from tutorial to fit a least square.
+* word2vec.py : Word2Vec from the Kaggle tutorial
+
