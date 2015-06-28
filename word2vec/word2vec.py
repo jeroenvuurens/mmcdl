@@ -4,13 +4,15 @@
 # labeledTrainData.tsv : https://www.kaggle.com/c/word2vec-nlp-tutorial/download/labeledTrainData.tsv.zip
 # testData.tsv : https://www.kaggle.com/c/word2vec-nlp-tutorial/download/testData.tsv.zip
 
+# ignore the BeautifulSoup warnings....
+
 import pandas as pd
 from gensim.models import word2vec
 
 # Read data from files
-train = pd.read_csv( "data/labeledTrainData.tsv", header=0, delimiter="\t", quoting=3 )
-test = pd.read_csv( "data/testData.tsv", header=0, delimiter="\t", quoting=3 )
-unlabeled_train = pd.read_csv( "data/unlabeledTrainData.tsv", header=0, delimiter="\t", quoting=3 )
+train = pd.read_csv( "data/labeledTrainData.tsv.gz", header=0, delimiter="\t", quoting=3 )
+test = pd.read_csv( "data/testData.tsv.gz", header=0, delimiter="\t", quoting=3 )
+unlabeled_train = pd.read_csv( "data/unlabeledTrainData.tsv.gz", header=0, delimiter="\t", quoting=3 )
 
 # Verify the number of reviews that were read (100,000 in total)
 print "Read %d labeled train reviews, %d labeled test reviews, " \
