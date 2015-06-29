@@ -36,7 +36,7 @@ class tsnemodel:
             labels += self.labels[key]
 
         vecs = np.array(vecs, dtype='float64') #TSNE expects float type values
-        self.t = tsne.tsne(vecs, 2, 5, 10)
+        self.t = tsne.tsne(vecs, 2, 2, 4)
         vec_group_start = 0;
         for key, value in self.vecs.iteritems():
             color = self.colors[key]
