@@ -6,8 +6,7 @@ from collections import defaultdict
 from gensim.models import word2vec
 import numpy as np
 import matplotlib.pyplot as plt
-
-from word2vec import tsne
+import tsne as tsne
 
 class tsnemodel:
     'tsnemodel'
@@ -22,7 +21,7 @@ class tsnemodel:
         vecs = []
         for word in words:
             try:
-               self.vecs[groupname].append(model[word].reshape(300))
+               self.vecs[groupname].append(model[word])
                self.labels[groupname].append(word)
                self.colors[groupname] = color
             except KeyError:
@@ -37,16 +36,16 @@ class tsnemodel:
             labels += self.labels[key]
 
         vecs = np.array(vecs, dtype='float64') #TSNE expects float type values
-        self.t = tsne.tsne(vecs, 2, 3, 30)
+        self.t = tsne.tsne(vecs, 2, 5, 10)
         vec_group_start = 0;
         for key, value in self.vecs.iteritems():
             color = self.colors[key]
             for j in range(len(value)):
                 index = vec_group_start + j
-                label = self.labels[key][ index ]
+                label = self.labels[ key ][j]
                 plt.plot(self.t[ index ][0], self.t[ index ][1])
                 plt.text(self.t[ index ][0], self.t[ index ][1], label, color=color, horizontalalignment='center')
-                print self.t[ index ][0], self.t[ index ][1]
+                #print self.t[ index ][0], self.t[ index ][1]
             vec_group_start += len(value)
         plt.show()
         return plt

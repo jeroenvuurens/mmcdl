@@ -63,7 +63,7 @@ sentences = review_to_sentences(train)
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
 # Set values for various parameters
-num_features = 300    # Word vector dimensionality
+num_features = 50    # Word vector dimensionality
 min_word_count = 5   # Minimum word count
 num_workers = 2       # Number of threads to run in parallel
 context = 10          # Context window size
