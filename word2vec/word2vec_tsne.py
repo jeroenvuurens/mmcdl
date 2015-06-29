@@ -36,6 +36,9 @@ class tsnemodel:
             labels += self.labels[key]
 
         vecs = np.array(vecs, dtype='float64') #TSNE expects float type values
+        # call tsne with (vectors, #output dimensions (2=2D), intermediate dimensions (not sure what this does), perplexity)
+        # perplexity modifies the repulsion between vectors, so a high value 
+        # distributes nodes evenly over space, while a low value groups values
         self.t = tsne.tsne(vecs, 2, 2, 4)
         vec_group_start = 0;
         for key, value in self.vecs.iteritems():
